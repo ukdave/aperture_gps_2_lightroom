@@ -1,0 +1,15 @@
+---
+require:
+  - rubocop-performance
+  - rubocop-sequel
+
+AllCops:
+  TargetRubyVersion: 3.2
+  DisplayCopNames: true
+  NewCops: enable
+
+Style/Documentation:
+  Enabled: false
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
