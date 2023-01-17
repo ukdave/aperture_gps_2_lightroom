@@ -2,7 +2,7 @@
 
 module ApertureGps2Lightroom
   module Aperture
-    class Version < Sequel::Model(APERTURE_DB[:rkversion])
+    class Version < Sequel::Model(Config.aperture_db[:rkversion])
       many_to_one :master, key: :masterUuid, primary_key: :uuid
       many_to_one :folder, key: :projectUuid, primary_key: :uuid
 

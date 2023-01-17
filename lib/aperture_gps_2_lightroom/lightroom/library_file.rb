@@ -2,7 +2,7 @@
 
 module ApertureGps2Lightroom
   module Lightroom
-    class LibraryFile < Sequel::Model(LIGHTROOM_DB[:agLibraryFile])
+    class LibraryFile < Sequel::Model(Config.lightroom_db[:agLibraryFile])
       many_to_one :library_folder, key: :folder, primary_key: :id_local
       one_to_many :adobe_images, key: :rootFile, primary_key: :id_local
 

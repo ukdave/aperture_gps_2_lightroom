@@ -1,5 +1,9 @@
 # frozen_string_literal: true
 
+require_relative "config"
+
+ApertureGps2Lightroom::Config.load("config/config.yml")
+
 require_relative "aperture"
 require_relative "lightroom"
 

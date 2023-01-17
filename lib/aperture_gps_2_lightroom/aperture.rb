@@ -1,11 +1,7 @@
 # frozen_string_literal: true
 
 require "digest"
-require "pathname"
 require "sequel"
-
-APERTURE_DB = Sequel.connect("sqlite:///Volumes/Time%20Machine/Aperture%20Library%20(ready%20for%20migration).aplibrary/Database/apdb/Library.apdb")
-APERTURE_MASTERS = Pathname.new("/Volumes/Time Machine/Aperture Library (ready for migration).aplibrary/Masters")
 
 require_relative "aperture/folder"
 require_relative "aperture/master"

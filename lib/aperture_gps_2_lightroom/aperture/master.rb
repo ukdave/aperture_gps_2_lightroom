@@ -2,11 +2,11 @@
 
 module ApertureGps2Lightroom
   module Aperture
-    class Master < Sequel::Model(APERTURE_DB[:rkmaster])
+    class Master < Sequel::Model(Config.aperture_db[:rkmaster])
       one_to_many :versions, key: :masterUuid, primary_key: :uuid
 
       def compute_file_hash
-        Digest::SHA1.file(APERTURE_MASTERS.join(imagePath)).hexdigest
+        Digest::SHA1.file(Config.aperture_masters_path.join(imagePath)).hexdigest
       end
     end
   end

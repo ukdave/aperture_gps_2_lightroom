@@ -1,0 +1,12 @@
+---
+
+aperture:
+  # database_url: sqlite://aperture.sqlite
+  database_url: sqlite:///Volumes/Time%20Machine/Aperture%20Library%20(ready%20for%20migration).aplibrary/Database/apdb/Library.apdb
+  masters_path: /Volumes/Time Machine/Aperture Library (ready for migration).aplibrary/Masters
+
+lightroom:
+  # database_url: sqlite://lightroom.sqlite
+  database_url: sqlite:///Users/david/Pictures/Lightroom%20Aperture/Lightroom%20Aperture.lrcat
+  images_path: /Users/david/Pictures/Lightroom Aperture Photos
+  image_hashes_file: ./lightroom_image_hashes.json

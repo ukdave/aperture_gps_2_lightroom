@@ -2,7 +2,7 @@
 
 module ApertureGps2Lightroom
   module Lightroom
-    class HarvestedExifMetadata < Sequel::Model(LIGHTROOM_DB[:AgharvestedExifMetadata])
+    class HarvestedExifMetadata < Sequel::Model(Config.lightroom_db[:AgharvestedExifMetadata])
       one_to_one :adobe_image, key: :image, primary_key: :id_local
 
       def gps?
