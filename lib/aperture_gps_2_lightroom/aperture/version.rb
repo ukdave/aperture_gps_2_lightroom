@@ -7,11 +7,11 @@ module ApertureGps2Lightroom
       many_to_one :folder, key: :projectUuid, primary_key: :uuid
 
       dataset_module do
-        def folder_name(name)
-          folder = Aperture::Folder.first(name:)
-          raise "Folder not found: #{name}" unless folder
+        def project_name(name)
+          project = Aperture::Folder.first(name:, folderType: 2)
+          raise "Project not found: #{name}" unless project
 
-          where(projectUuid: folder.uuid)
+          where(projectUuid: project.uuid)
         end
 
         def visible

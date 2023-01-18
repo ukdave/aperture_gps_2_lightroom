@@ -3,12 +3,12 @@
 
 $LOAD_PATH << "lib"
 
-aperture_folder_name = ARGV[0]
-if aperture_folder_name.nil? || aperture_folder_name.empty?
-  puts "Usage: ${0} <aperture_folder_name>"
+aperture_project_name = ARGV[0]
+if aperture_project_name.nil? || aperture_project_name.empty?
+  puts "Usage: ${0} <aperture_project_name>"
   exit 1
 end
 
 require "aperture_gps_2_lightroom"
 
-ApertureGps2Lightroom::Main.go(aperture_folder_name)
+ApertureGps2Lightroom::Main.go(aperture_project_name)

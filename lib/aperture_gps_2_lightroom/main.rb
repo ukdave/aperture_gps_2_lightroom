@@ -9,9 +9,10 @@ require_relative "lightroom"
 
 module ApertureGps2Lightroom
   class Main
-    def self.go(aperture_folder_name)
-      # 1. Get Aperture versions in given folder that have a GPS location
-      aperture_versions = Aperture.versions_with_gps_for_folder(aperture_folder_name)
+    def self.go(aperture_project_name)
+      # 1. Get Aperture versions in given project that have a GPS location
+      aperture_versions = Aperture.versions_with_gps_for_project(aperture_project_name)
+      puts "Found #{aperture_versions.length} versions with GPS in #{aperture_project_name}"
 
       # 2. Load/Generate static file with SHA1 hashes of all lightroom images
       lightroom_image_hashes = Lightroom.image_hashes

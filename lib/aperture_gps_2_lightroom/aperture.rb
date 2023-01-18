@@ -9,8 +9,8 @@ require_relative "aperture/version"
 
 module ApertureGps2Lightroom
   module Aperture
-    def self.versions_with_gps_for_folder(folder_name)
-      Aperture::Version.folder_name(folder_name).visible.with_gps.all.map do |version|
+    def self.versions_with_gps_for_project(project_name)
+      Aperture::Version.project_name(project_name).visible.with_gps.all.map do |version|
         { fileName: version.fileName,
           fileHash: version.master.compute_file_hash,
           latitude: version.exifLatitude,
