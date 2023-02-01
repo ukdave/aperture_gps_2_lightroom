@@ -1,8 +1,54 @@
 # Aperture GPS 2 Lightroom
 
+Ruby app to copy GPS data from an Aperture library to Lightroom.
+
+This assumes you have migrated your Aperture library to Lightroom using the "Import from from Aperture library"
+plugin in Lightroom. For more info see: https://helpx.adobe.com/uk/lightroom-classic/help/migrate-photos-aperture.html
+
+After doing this I found that all my photos and metadata had been copied over except for GPS data that had
+been manually assigned in Aperture.
+
+## Usage
+
+Currently the app only support copying GPS data over in an individual project basis.
+
+```
+./bin/aperture_gps_2_lightroom <project_name>
+```
+
+Example:
+
+```
+./bin/aperture_gps_2_lightroom "Amathus Ruins"
+Found 55 versions with GPS in Amathus Ruins
+Updating location for 2010/08/2010-08-13/IMG_1437.JPG  to 0.34711878889375726e2, 0.33143230676651e2
+Updating location for 2010/08/2010-08-13/IMG_1438.JPG  to 0.34711878889375726e2, 0.33143230676651e2
+Updating location for 2010/08/2010-08-13/IMG_1439.JPG  to 0.347102120093513e2, 0.3314221143722534e2
+Updating location for 2010/08/2010-08-13/IMG_1440.JPG  to 0.34711296808105e2, 0.3314144432544708e2
+Updating location for 2010/08/2010-08-13/IMG_1441.JPG  to 0.34711296808105e2, 0.3314144432544708e2
+Updating location for 2010/08/2010-08-13/IMG_1443.JPG  to 0.34711296808105e2, 0.3314144432544708e2
+Updating location for 2010/08/2010-08-13/IMG_1443.JPG VERSION-2 to 0.34711296808105e2, 0.3314144432544708e2
+WARNING: Cowardly refusing to overwrite GPS location for 2010/08/2010-08-13/IMG_1443.JPG
+WARNING: Cowardly refusing to overwrite GPS location for 2010/08/2010-08-13/IMG_1443.JPG VERSION-2
+Updating location for 2010/08/2010-08-13/IMG_1444.JPG  to 0.34711296808105e2, 0.3314144432544708e2
+Updating location for 2010/08/2010-08-13/IMG_1445.JPG  to 0.34711296808105e2, 0.3314144432544708e2
+Updating location for 2010/08/2010-08-13/IMG_1446.JPG  to 0.34711296808105e2, 0.3314144432544708e2
+Updating location for 2010/08/2010-08-13/IMG_1447.JPG  to 0.347122669412804e2, 0.3314048409461975e2
+Updating location for 2010/08/2010-08-13/IMG_1448.JPG  to 0.347122669412804e2, 0.3314048409461975e2
+...
+```
+
 ## Dev Notes
 
 Both Aperture and Lightroom use [SQLite](https://www.sqlite.org/index.html) for the databases.
+
+Process overview:
+
+1. Get Aperture versions in given project that have a GPS location
+2. Load/Generate static file with SHA1 hashes of all lightroom images
+3. Iterate over Aperture versions
+   1. Find lightroom images with matching file hash
+   2. Update lightroom image GPS
 
 ### Aperture Database
 
