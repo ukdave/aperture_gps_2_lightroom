@@ -9,5 +9,4 @@ group :development do
   gem "rubocop"
   gem "rubocop-performance"
   gem "rubocop-sequel"
-  gem "solargraph"
 end
